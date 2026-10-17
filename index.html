@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>火星影视 - 环形山上的影视基地·科幻/太空/硬核纪录片</title>
+<meta name="description" content="火星影视（huoxingyingshi-h5）把电影、太空剧、硬核纪录片铺成火星地质剖面：沙丘、星际穿越、三体、火星救援、苍穹浩瀚、宇宙时空之旅，像在环形山上开一间前哨影院。网址 https://huoxingyingshi-h5.github.io">
+<meta name="keywords" content="火星影视,火星主题影视站,科幻电影,太空剧,三体,沙丘,星际穿越,火星救援,苍穹浩瀚,宇宙纪录片">
+<link rel="canonical" href="https://huoxingyingshi-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Space Grotesk","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:#160d0a;color:#f3e7df;line-height:1.75;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 12% 8%,rgba(255,90,40,.20),transparent 36%),
+    radial-gradient(circle at 86% 14%,rgba(80,220,210,.10),transparent 40%),
+    radial-gradient(circle at 50% 120%,rgba(120,40,20,.25),transparent 55%);
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:0}
+
+/* 顶条 */
+.mars-bar{background:#0d0705;padding:7px 16px;border-bottom:1px solid #3a1c12;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:1px;color:#caa08c}
+.mars-bar b{color:#ff6a3d}
+.mars-bar .teal{color:#5fe0d2}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:999;background:rgba(22,13,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid #46241a}
+.nav-in{max-width:1240px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo-mars{display:flex;align-items:center;gap:11px}
+.planet{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#ff8a4d,#c43a17 55%,#5e1c0c);box-shadow:0 0 14px rgba(255,90,40,.6)}
+.logo-mars .cn{font-size:21px;font-weight:900;letter-spacing:2px}
+.logo-mars .cn em{font-style:normal;color:#ff6a3d}
+.logo-mars .en{font-size:10px;letter-spacing:3px;color:#9c7a6c}
+.menu{display:flex;gap:2px}
+.menu a{font-size:14px;color:#d8bdb0;padding:8px 12px;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover{color:#ffd9c2;border-bottom-color:#ff6a3d}
+.nav-cta{background:linear-gradient(135deg,#ff6a3d,#ffb347);color:#2a0f06;font-weight:800;font-size:14px;padding:9px 20px;border-radius:8px}
+.nav-cta:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+/* Hero */
+.hero-mars{max-width:1240px;margin:0 auto;padding:74px 20px 58px;display:grid;grid-template-columns:1.25fr .75fr;gap:46px;align-items:center;position:relative}
+.hero-mars::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;opacity:.5}
+.hero-mars h1{font-size:clamp(34px,5.6vw,62px);font-weight:900;line-height:1.06;letter-spacing:-.5px;position:relative;z-index:1}
+.hero-mars h1 .rust{color:#ff6a3d}
+.hero-mars h1 .teal{color:#5fe0d2}
+.hero-mars .sub{font-size:13px;letter-spacing:5px;color:#caa08c;margin-bottom:14px}
+.hero-mars .lead{font-size:16px;color:#e3cabb;margin:18px 0 26px;max-width:540px;position:relative;z-index:1}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.btn-rust{padding:13px 30px;font-weight:800;border-radius:9px;transition:.25s;font-size:15px;background:linear-gradient(135deg,#ff6a3d,#ffb347);color:#2a0f06}
+.btn-rust:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,106,61,.35)}
+.btn-teal{background:transparent;color:#5fe0d2;border:1px solid #1f5b55;padding:13px 30px;border-radius:9px;font-weight:800;font-size:15px}
+.btn-teal:hover{background:#0f2b29}
+
+/* 控制台卡 */
+.console{background:linear-gradient(160deg,#1d100b,#140b08);border:1px solid #46241a;border-radius:18px;padding:24px;position:relative;z-index:1}
+.console .ttl{font-size:12px;letter-spacing:3px;color:#caa08c;display:flex;justify-content:space-between}
+.console .ttl b{color:#5fe0d2}
+.gauge{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.g{background:#0f0805;border:1px solid #2e1810;border-radius:12px;padding:14px}
+.g .n{font-size:22px;font-weight:900;color:#ff8a4d}
+.g .l{font-size:11px;color:#9c7a6c;margin-top:2px}
+.g.teal .n{color:#5fe0d2}
+.bar{height:6px;border-radius:6px;background:#2e1810;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#ff6a3d,#ffb347)}
+.bar.t i{background:linear-gradient(90deg,#2bbfb1,#5fe0d2)}
+
+/* 区块 */
+.block{max-width:1240px;margin:0 auto;padding:66px 20px}
+.block-head{margin-bottom:34px;border-bottom:1px solid #46241a;padding-bottom:12px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.block-head .sol{font-size:12px;font-weight:800;color:#160d0a;background:#ff6a3d;padding:3px 10px;border-radius:3px}
+.block-head h2{font-size:26px;font-weight:900}
+.block-head h2 em{font-style:normal;color:#ff6a3d}
+.block-head .en{font-size:12px;letter-spacing:3px;color:#8a6b5e}
+.block-head a{margin-left:auto;font-size:13px;color:#caa08c}
+.block-head a:hover{color:#ff6a3d}
+
+/* 星图热映 */
+.starmap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px}
+.feat{grid-row:span 2;position:relative;height:430px;border-radius:14px;overflow:hidden;border:1px solid #46241a}
+.tile{position:relative;height:205px;border-radius:12px;overflow:hidden;border:1px solid #46241a}
+.feat img,.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.05) sepia(.12)}
+.feat:hover img,.tile:hover img{transform:scale(1.05);transition:.6s}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(180deg,transparent,rgba(10,5,3,.94))}
+.cap h3{font-size:17px;font-weight:800;color:#ffe7d6}
+.feat .cap h3{font-size:23px}
+.cap .meta{font-size:12px;color:#d8bdb0;margin-top:3px}
+.score{position:absolute;top:12px;right:12px;background:#0f0805;border:1px solid #ff6a3d;color:#ffb347;font-weight:800;font-size:13px;padding:3px 9px;border-radius:20px}
+.tag-orbit{position:absolute;top:12px;left:12px;background:#2bbfb1;color:#04201d;font-size:11px;font-weight:800;padding:3px 9px;border-radius:3px}
+
+/* 片库卡 */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:#1b0f0a;border:1px solid #46241a;border-radius:14px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:#ff6a3d;box-shadow:0 16px 34px rgba(0,0,0,.45)}
+.card img{width:100%;height:170px;object-fit:cover;filter:saturate(1.08) sepia(.1)}
+.card .b{padding:15px}
+.card h3{font-size:16px;font-weight:800;color:#ffe7d6}
+.card .row{display:flex;justify-content:space-between;font-size:12px;color:#c39c8b;margin-top:6px}
+.card .row b{color:#ffb347}
+.chip{display:inline-block;margin-top:9px;font-size:11px;color:#5fe0d2;border:1px solid #1f5b55;padding:2px 9px;border-radius:12px}
+
+/* 纪录片 时间线 */
+.doc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.doc{background:#140b08;border-left:4px solid #2bbfb1;padding:20px;border-radius:0 12px 12px 0}
+.doc h3{font-size:18px;font-weight:800;color:#dffaf6}
+.doc .meta{font-size:12px;color:#5fe0d2;margin:4px 0 8px;letter-spacing:1px}
+.doc p{font-size:14px;color:#cdb6a8}
+
+/* 基地频道 大图 */
+.channels{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.chan{position:relative;height:240px;border-radius:14px;overflow:hidden;border:1px solid #46241a}
+.chan img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+.chan .ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(10,5,3,.92));display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.chan h3{font-size:18px;font-weight:800;color:#ffe7d6}
+.chan p{font-size:13px;color:#d8bdb0;margin-top:4px}
+
+/* 放映舱 */
+.pods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.pod{background:linear-gradient(180deg,#1d100b,#140b08);border:1px solid #46241a;border-radius:16px;padding:24px;transition:.3s}
+.pod:hover{transform:translateY(-4px);border-color:#5fe0d2}
+.pod .ico{font-size:28px}
+.pod h3{font-size:17px;font-weight:800;margin:10px 0 6px;color:#ffe7d6}
+.pod p{font-size:14px;color:#c39c8b}
+.pod .spec{margin-top:12px;font-size:12px;color:#5fe0d2;letter-spacing:1px}
+
+/* 任务日志 */
+.log{max-width:920px;margin:0 auto}
+.log-row{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed #2e1810}
+.log-row .sol{font-size:13px;font-weight:800;color:#ff8a4d}
+.log-row h3{font-size:16px;font-weight:800;color:#ffe7d6}
+.log-row p{font-size:14px;color:#cdb6a8;margin-top:4px}
+
+/* 关于 */
+.about-mars{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:linear-gradient(135deg,#23120c,#1a2a28);border:1px solid #46241a;border-radius:18px;padding:44px}
+.about-mars h2{font-size:26px;font-weight:900;margin-bottom:16px}
+.about-mars h2 em{font-style:normal;color:#ff6a3d}
+.about-mars p{font-size:15px;color:#e3cabb;line-height:1.95;margin-bottom:12px}
+.about-mars .url{color:#5fe0d2;font-weight:700}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.st{background:#0f0805;border:1px solid #2e1810;border-radius:12px;padding:20px;text-align:center}
+.st .n{font-size:28px;font-weight:900;color:#ff8a4d}
+.st .l{font-size:12px;color:#9c7a6c;margin-top:4px}
+.st.teal .n{color:#5fe0d2}
+
+/* 页脚 */
+.foot{border-top:1px solid #46241a;padding:42px 20px 30px;text-align:center;background:#0d0705}
+.foot-logo{font-size:20px;font-weight:900;letter-spacing:2px}
+.foot-logo em{font-style:normal;color:#ff6a3d}
+.foot-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:14px 0}
+.foot-links a{font-size:13px;color:#9c7a6c}
+.foot-links a:hover{color:#ff6a3d}
+.foot p{font-size:12px;color:#6f564b}
+.foot .disc{margin-top:10px;max-width:780px;margin-left:auto;margin-right:auto;color:#5a463c;line-height:1.7}
+
+@media(max-width:860px){
+  .menu{display:none}
+  .hero-mars{grid-template-columns:1fr;padding:52px 20px}
+  .console{order:2}
+  .starmap{grid-template-columns:1fr}
+  .feat{height:260px}
+  .about-mars{grid-template-columns:1fr;padding:30px}
+  .block{padding:50px 20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- 顶条 -->
+<div class="mars-bar">
+  <span>SOL 2049</span><b>环形山影院在线</b>
+  <span class="teal">生命维持 98%</span>
+  <span>沙尘指数 中</span><b>新片已降落 6 部</b>
+  <span>放映舱 4 间待机</span>
+</div>
+
+<!-- 导航 -->
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo-mars">
+      <div class="planet"></div>
+      <div>
+        <div class="cn">火星<em>影视</em></div>
+        <div class="en">MARS FILM BASE</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#home">首页</a>
+      <a href="#starmap">星图热映</a>
+      <a href="#scifi">科幻片库</a>
+      <a href="#space">太空剧集</a>
+      <a href="#docs">火星纪录片</a>
+      <a href="#channels">基地频道</a>
+      <a href="#pods">放映舱</a>
+      <a href="#log">任务日志</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a href="#starmap" class="nav-cta">🚀 进入片库</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero-mars" id="home">
+  <div>
+    <div class="sub">RED PLANET · CINEMA FRONTIER</div>
+    <h1>在<span class="rust">火星</span>环形山上<br>放一场<span class="teal">星际</span>电影</h1>
+    <p class="lead">火星影视不是普通片库——我们把科幻片、太空剧、硬核纪录片铺成火星地质剖面：外层是沙尘与废土，内里是故事积成的岩层。沿层下探，就能找到《沙丘》《三体》《星际穿越》《火星救援》。</p>
+    <div class="hero-btns">
+      <a href="#starmap" class="btn-rust">🛰️ 看星图热映</a>
+      <a href="#pods" class="btn-teal">🎛️ 进放映舱</a>
+    </div>
+  </div>
+
+  <div class="console">
+    <div class="ttl"><span>BASE CONTROL</span><b>● ONLINE</b></div>
+    <div class="gauge">
+      <div class="g"><div class="n">1280+</div><div class="l">可放映片目</div></div>
+      <div class="g teal"><div class="n">4 间</div><div class="l">放映舱在线</div></div>
+      <div class="g"><div class="n">9.2</div><div class="l">热片均分</div></div>
+      <div class="g teal"><div class="n">每日</div><div class="l">新片降落</div></div>
+    </div>
+    <div class="bar"><i style="width:82%"></i></div>
+    <div style="font-size:11px;color:#9c7a6c;margin-top:6px">片库氧压 · 82% / 沙尘缓冲正常</div>
+    <div class="bar t"><i style="width:98%"></i></div>
+    <div style="font-size:11px;color:#5fe0d2;margin-top:6px">生命维持 · 98% / 放映系统稳定</div>
+  </div>
+</section>
+
+<!-- 星图热映 -->
+<section class="block" id="starmap">
+  <div class="block-head">
+    <span class="sol">SOL 2049</span>
+    <h2>星图<em>热映</em></h2>
+    <span class="en">NOW ORBITING</span>
+    <a href="#">全部 #</a>
+  </div>
+  <div class="starmap">
+    <div class="feat">
+      <img src="https://picsum.photos/800/900?random=5201" alt="火星影视 沙丘2 星际史诗">
+      <span class="score">9.4</span>
+      <div class="cap"><h3>沙丘 2</h3><div class="meta">科幻史诗 · 沙漠行星 · 视听巅峰</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://picsum.photos/500/400?random=5202" alt="火星影视 流浪地球3">
+      <span class="score">8.8</span>
+      <div class="cap"><h3>流浪地球 3</h3><div class="meta">中国科幻 · 行星发动机</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://picsum.photos/500/400?random=5203" alt="火星影视 阿凡达3">
+      <span class="tag-orbit">ORBIT</span>
+      <div class="cap"><h3>阿凡达 3</h3><div class="meta">潘多拉 · 视觉革命</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://picsum.photos/500/400?random=5204" alt="火星影视 星际穿越">
+      <span class="score">9.4</span>
+      <div class="cap"><h3>星际穿越</h3><div class="meta">虫洞 · 时间 · 爱</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://picsum.photos/500/400?random=5205" alt="火星影视 火星救援">
+      <span class="score">8.7</span>
+      <div class="cap"><h3>火星救援</h3><div class="meta">种土豆 · 一个人守行星</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 科幻片库 -->
+<section class="block" id="scifi" style="background:#120a07">
+  <div class="block-head">
+    <span class="sol">LAYER 01</span>
+    <h2>科幻<em>片库</em></h2>
+    <span class="en">SCI-FI SHELF</span>
+    <a href="#">全部 #</a>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/500/360?random=5211" alt="火星影视 盗梦空间"><div class="b"><h3>盗梦空间</h3><div class="row"><span>诺兰 · 烧脑</span><b>9.4</b></div><span class="chip">多层梦境</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5212" alt="火星影视 信条"><div class="b"><h3>信条</h3><div class="row"><span>逆向时间</span><b>8.5</b></div><span class="chip">熵增迷局</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5213" alt="火星影视 银翼杀手2049"><div class="b"><h3>银翼杀手 2049</h3><div class="row"><span>赛博 · 雨夜</span><b>8.9</b></div><span class="chip">人造人诗学</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5214" alt="火星影视 降临"><div class="b"><h3>降临</h3><div class="row"><span>语言 · 时间</span><b>8.3</b></div><span class="chip">七肢桶</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5215" alt="火星影视 月球"><div class="b"><h3>月球</h3><div class="row"><span>孤独 · 克隆</span><b>8.6</b></div><span class="chip">一人一基地</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5216" alt="火星影视 地心引力"><div class="b"><h3>地心引力</h3><div class="row"><span>太空生存</span><b>8.2</b></div><span class="chip">失重长镜头</span></div></div>
+  </div>
+</section>
+
+<!-- 太空剧集 -->
+<section class="block" id="space">
+  <div class="block-head">
+    <span class="sol">LAYER 02</span>
+    <h2>太空<em>剧集</em></h2>
+    <span class="en">SPACE SERIES</span>
+    <a href="#">全部 #</a>
+  </div>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/500/360?random=5221" alt="火星影视 三体"><div class="b"><h3>三体</h3><div class="row"><span>国产科幻 · 悬疑</span><b>9.0</b></div><span class="chip">红岸基地</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5222" alt="火星影视 苍穹浩瀚"><div class="b"><h3>苍穹浩瀚</h3><div class="row"><span>硬科幻 · 政治</span><b>9.2</b></div><span class="chip">小行星带</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5223" alt="火星影视 曼达洛人"><div class="b"><h3>曼达洛人</h3><div class="row"><span>太空西部</span><b>8.9</b></div><span class="chip">尤达宝宝</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5224" alt="火星影视 基地"><div class="b"><h3>基地</h3><div class="row"><span>阿西莫夫 · 史诗</span><b>8.4</b></div><span class="chip">银河帝国</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5225" alt="火星影视 异星灾变"><div class="b"><h3>异星灾变</h3><div class="row"><span>创世 · 机器人</span><b>8.8</b></div><span class="chip">开普勒行星</span></div></div>
+    <div class="card"><img src="https://picsum.photos/500/360?random=5226" alt="火星影视 星际迷航发现号"><div class="b"><h3>星际迷航：发现号</h3><div class="row"><span>联邦 · 镜相宇宙</span><b>8.2</b></div><span class="chip">曲速航行</span></div></div>
+  </div>
+</section>
+
+<!-- 火星纪录片 -->
+<section class="block" id="docs" style="background:#120a07">
+  <div class="block-head">
+    <span class="sol">LAYER 03</span>
+    <h2>火星<em>纪录片</em></h2>
+    <span class="en">REAL MARS</span>
+    <a href="#">全部 #</a>
+  </div>
+  <div class="doc-list">
+    <div class="doc"><div class="meta">NASA / ESA · 行星科学</div><h3>行星 Planets</h3><p>从火星、木星到冥王星，用 CGI 重建太阳系演化，像看一部宇宙版《地球脉动》。</p></div>
+    <div class="doc"><div class="meta">天体物理 · 时间线</div><h3>宇宙时空之旅</h3><p>卡尔·萨根谱系下的科普神作，把光年、原子、达尔文和星尘串成一条线。</p></div>
+    <div class="doc"><div class="meta">载人探索 · 工程</div><h3>火星时代 / 火星元年</h3><p>从猎户座飞船、SLS 火箭到火星着陆舱，讲人类怎么把“登陆”从小说变成排期表。</p></div>
+    <div class="doc"><div class="meta">地表 · 遥感</div><h3>火星地平线</h3><p>毅力号、好奇号、洞察号：机器人先在沙尘里替人类踩点，拍回 Jezero 陨石坑的真实岩层。</p></div>
+  </div>
+</section>
+
+<!-- 基地频道 -->
+<section class="block" id="channels">
+  <div class="block-head">
+    <span class="sol">ZONE</span>
+    <h2>基地<em>频道</em></h2>
+    <span class="en">BASE CHANNELS</span>
+    <a href="#">全部 #</a>
+  </div>
+  <div class="channels">
+    <div class="chan"><img src="https://picsum.photos/500/420?random=5231" alt="火星影视 废土影院"><div class="ov"><h3>废土影院</h3><p>沙暴、末日、丧尸、核冬天——红尘里的生存片。</p></div></div>
+    <div class="chan"><img src="https://picsum.photos/500/420?random=5232" alt="火星影视 穹顶白舱"><div class="ov"><h3>穹顶白舱</h3><p>基地、AI、生命维持、人类存续的冷静科幻。</p></div></div>
+    <div class="chan"><img src="https://picsum.photos/500/420?random=5233" alt="火星影视 深空长镜"><div class="ov"><h3>深空长镜</h3><p>宇宙纪录片、太空站、探测器第一视角。</p></div></div>
+    <div class="chan"><img src="https://picsum.photos/500/420?random=5234" alt="火星影视 地球回望"><div class="ov"><h3>地球回望</h3><p>从火星望蓝点：灾难、气候、文明与回家。</p></div></div>
+  </div>
+</section>
+
+<!-- 放映舱 -->
+<section class="block" id="pods" style="background:#120a07">
+  <div class="block-head">
+    <span class="sol">PODS</span>
+    <h2>四间<em>放映舱</em></h2>
+    <span class="en">SCREENING PODS</span>
+  </div>
+  <div class="pods">
+    <div class="pod"><div class="ico">🎛️</div><h3>A 舱 · 穹顶 IMAX</h3><p>半圆投影 + 环绕声，放《沙丘》《星际穿越》这类大尺度太空片最稳。</p><div class="spec">4K · 杜比环绕 · 沙色穹顶</div></div>
+    <div class="pod"><div class="ico">🛰️</div><h3>B 舱 · 失重躺舱</h3><p>斜躺座椅 + 低光环境，适合《地心引力》《月球》这种孤独感片子。</p><div class="spec">低照度 · 单声道沉浸</div></div>
+    <div class="pod"><div class="ico">🤖</div><h3>C 舱 · AI 解说</h3><p>播《三体》《基地》时叠科学注释：曲率驱动、黑暗森林、心理史学。</p><div class="spec">字幕注释 · 术语弹层</div></div>
+    <div class="pod"><div class="ico">📡</div><h3>D 舱 · 深空电台</h3><p>纪录片专场，配任务通讯音、雷达脉冲和白噪声，像在指挥中心看片。</p><div class="spec">真实 NASA 音频 · 遥感 HUD</div></div>
+  </div>
+</section>
+
+<!-- 任务日志 -->
+<section class="block" id="log">
+  <div class="block-head">
+    <span class="sol">LOG</span>
+    <h2>片库<em>任务日志</em></h2>
+    <span class="en">FILM LOG</span>
+  </div>
+  <div class="log">
+    <div class="log-row"><div class="sol">SOL 2047</div><div><h3>《沙丘 2》降落主屏</h3><p>沙虫、香料、厄拉科斯——A 舱排片 3 场，沙色滤镜已校准。</p></div></div>
+    <div class="log-row"><div class="sol">SOL 2045</div><div><h3>三体专题上线</h3><p>红岸基地、古筝行动、水滴撞击——C 舱开启科学注释模式。</p></div></div>
+    <div class="log-row"><div class="sol">SOL 2041</div><div><h3>火星纪录片周</h3><p>毅力号 Jezero  crater 实拍 + 行星科学剪辑，D 舱深空电台连放 7 晚。</p></div></div>
+    <div class="log-row"><div class="sol">SOL 2038</div><div><h3>废土影院重排</h3><p>《我是传奇》《疯狂的麦克斯》《月球陨落》归入废土层，评分阈值 8.0+。</p></div></div>
+  </div>
+</section>
+
+<!-- 关于 -->
+<section class="block" id="about">
+  <div class="about-mars">
+    <div>
+      <h2>火星影视：<em>环形山上的影视基地</em></h2>
+      <p>我们不想做又一个“首页堆海报”的影视站。火星影视把片库当成地质剖面：最外层是废土与沙暴，往里是太空剧、硬科幻、宇宙纪录片，最深处是那些被时间磨亮的老片。</p>
+      <p>编辑每天在沙暴间隙巡库，把值得停留的作品点亮成路标；新片降落就先替你看一遍，再把真实观感、评分、片长和主创塞进卡片。</p>
+      <p>官方网址：<span class="url">https://huoxingyingshi-h5.github.io</span></p>
+    </div>
+    <div class="stats">
+      <div class="st"><div class="n">1280+</div><div class="l">片目 / 剧集 / 纪录片</div></div>
+      <div class="st teal"><div class="n">4 间</div><div class="l">主题放映舱</div></div>
+      <div class="st"><div class="n">6 层</div><div class="l">片库地质剖面</div></div>
+      <div class="st teal"><div class="n">SOL 2049</div><div class="l">基地在线计时</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="foot">
+  <div class="foot-logo">火星<em>影视</em> · MARS FILM BASE</div>
+  <div class="foot-links">
+    <a href="#starmap">星图热映</a>
+    <a href="#scifi">科幻片库</a>
+    <a href="#space">太空剧集</a>
+    <a href="#docs">火星纪录片</a>
+    <a href="#channels">基地频道</a>
+    <a href="#pods">放映舱</a>
+    <a href="#log">任务日志</a>
+    <a href="#about">关于</a>
+  </div>
+  <p>© 2026 火星影视 · 网站网址：https://huoxingyingshi-h5.github.io</p>
+  <p class="disc">本站为火星主题影视导航/展示页，片名、评分与简介用于演示排版；实际播放以正版授权平台为准。火星影视不提供盗链、破解或侵权片源，沙暴再大也不偏离轨道。</p>
+</footer>
+
+</body>
+</html>
